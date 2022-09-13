@@ -123,6 +123,18 @@
                 }
             }
 
+            function toastMessage(message, type = 'success', timeout = 5000) {
+                type = type && ['error', 'success'].includes(type) ? type : 'success'
+
+                if (toastfs && type in toastfs) {
+                    toastfs[type](message)
+                }
+
+                timeout = (!!(timeout - 0)) && typeof timeout == 'number' && timeout >= 1000 ? timeout : 5000
+
+                setTimeout(() => toastfs.remove(), timeout)
+            }
+
             function copyCode() {
                 // Get the text field
                 let dataCodeBlock = document.querySelector('[data-code-block]');
@@ -142,9 +154,7 @@
                         let message = 'Code copied!'
                         tooltiptext.innerHTML = message
 
-                        if (toastfs && 'success' in toastfs) {
-                            toastfs.success(message)
-                        }
+                        toastMessage(message)
 
                         console.log(message)
                     })
