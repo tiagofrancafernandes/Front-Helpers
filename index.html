@@ -1,36 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-100">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="Tiago França">
         <title>Front Helpers</title>
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+        <link rel="icon" href="static/assets/img/favicon.ico">
+        <meta name="theme-color" content="#712cf9">
+        <link href="static/assets/css/cover.css" rel="stylesheet">
     </head>
-    <body>
-        <div class="container">
-            <h2>Front Helpers</h2>
+    <body class="d-flex h-100 text-center text-bg-dark">
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+            <header class="mb-auto">
+                <div>
+                    <h3 class="float-md-start mb-0">Front Helpers</h3>
+                    <nav class="nav nav-masthead justify-content-center float-md-end">
+                        <a
+                            class="nav-link fw-bold py-1 px-0 active"
+                            aria-current="page"
+                            href="#docs"
+                        >Docs</a>
+                        <a
+                            class="nav-link fw-bold py-1 px-0"
+                            href="https://github.com/tiagofrancafernandes/Front-Helpers"
+                            target="_blank"
+                        >Repository</a>
+                    </nav>
+                </div>
+            </header>
+            <main class="px-3 mb-4" id="docs">
+                <h1>Docs</h1>
+                <div class="row">
+                    <div class="col-12 text-justify">
+                        <pre
+                            data-lang="html"
+                            class="language-html w-100 border border-white"
+                            data-code-block
+                        >
+    (function (src) {
+        if (!src || typeof src != 'string') {
+            return;
+        }
 
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="text-center">
-                        Using
-                    </h3>
-
-                    <div class="w-100">
-                        <code>
-                            (function (src) {
-                                if (!src || typeof src != 'string') {
-                                    return;
-                                }
-
-                                let script = document.createElement('script')
-                                script.src = src
-                                document.head.appendChild(script)
-                            })('https://tiagofrancafernandes.github.io/Front-Helpers/src/js/helpers.js')
-                        </code>
+        let script = document.createElement('script')
+        script.src = src
+        document.head.appendChild(script)
+    })('https://tiagofrancafernandes.github.io/Front-Helpers/src/js/helpers.js')
+                        </pre>
                     </div>
                 </div>
-            </div>
+                <div class="col-12">
+                    <div class="tf-tooltip">
+                        <button
+                            type="button"
+                            class="btn btn-lg btn-secondary fw-bold border-white"
+                            data-code-block-copy
+                            data-bs-toggle="popover"
+                            data-bs-trigger="hover focus"
+                            data-bs-content="Copy to clipboard"
+                        >
+                            <span class="tf-tooltiptext lead">Copy to clipboard</span>
+                            Copy
+                        </button>
+                    </div>
+                </div>
+            </main>
+            <footer class="mt-auto text-white-50">
+                <p>
+                    Project by
+                    <a
+                        href="https://tiagofranca.com"
+                        class="text-white"
+                        target="_blank"
+                    >Tiago França</a>
+                </p>
+                <p>
+                    Cover template for
+                    <a
+                        href="https://getbootstrap.com/"
+                        class="text-white"
+                        target="_blank"
+                    >Bootstrap</a>
+                    , by
+                    <a
+                        href="https://twitter.com/mdo"
+                        class="text-white"
+                        target="_blank"
+                    >@mdo</a>
+                </p>
+            </footer>
         </div>
+        <!-- <script src="//cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> -->
+        <script>
+            function copyToClipboard(textToCopy) {
+                // navigator clipboard api needs a secure context (https)
+                if (navigator.clipboard && window.isSecureContext) {
+                    // navigator clipboard api method'
+                    return navigator.clipboard.writeText(textToCopy);
+                } else {
+                    // text area method
+                    let textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    // make the textarea out of viewport
+                    textArea.style.position = "fixed";
+                    textArea.style.left = "-999999px";
+                    textArea.style.top = "-999999px";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    return new Promise((res, rej) => {
+                        // here the magic happens
+                        document.execCommand('copy') ? res() : rej();
+                        textArea.remove();
+                    });
+                }
+            }
+
+            function copyCode() {
+                // Get the text field
+                let dataCodeBlock = document.querySelector('[data-code-block]');
+
+                if (!dataCodeBlock) {
+                    return;
+                }
+
+                copyToClipboard(dataCodeBlock.innerText)
+                    .then(() => {
+                        let tooltiptext = document.querySelector('button[data-code-block-copy] .tf-tooltiptext')
+
+                        if (!tooltiptext) {
+                            return;
+                        }
+
+                        tooltiptext.innerHTML = 'Code copied!'
+                        console.log('Code copied!')
+                    })
+                    .catch(() => console.log('error'));
+            }
+
+            window.addEventListener('load', (wEvent) => {
+                let button = document.querySelector('button[data-code-block-copy]')
+
+                if (button) {
+                    console.log('button')
+                    button.addEventListener('click', event => copyCode())
+                }
+
+                ['mouseenter', 'mouseleave'].forEach(eventName => {
+                    let button = document.querySelector('button[data-code-block-copy]')
+
+                    if (!button) {
+                        console.log('return')
+                        return
+                    }
+
+                    console.log(eventName)
+                    button.addEventListener(eventName, event => {
+                        let tooltiptext = document.querySelector('button[data-code-block-copy] .tf-tooltiptext')
+
+                        if (!tooltiptext) {
+                            return;
+                        }
+
+                        tooltiptext.innerHTML = 'Copy to clipboard'
+                    })
+                })
+            });
+        </script>
     </body>
 </html>
