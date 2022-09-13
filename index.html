@@ -10,6 +10,9 @@
         <link rel="icon" href="static/assets/img/favicon.ico">
         <meta name="theme-color" content="#712cf9">
         <link href="static/assets/css/cover.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FaisalST32/fs-toast@latest/src/css/toastfs.min.css">
+
     </head>
     <body class="d-flex h-100 text-center text-bg-dark">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -93,6 +96,8 @@
             </footer>
         </div>
         <!-- <script src="//cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script> -->
+
+        <script src="https://cdn.jsdelivr.net/gh/FaisalST32/fs-toast@latest/src/js/toastfs.min.js"></script>
         <script>
             function copyToClipboard(textToCopy) {
                 // navigator clipboard api needs a secure context (https)
@@ -134,8 +139,14 @@
                             return;
                         }
 
-                        tooltiptext.innerHTML = 'Code copied!'
-                        console.log('Code copied!')
+                        let message = 'Code copied!'
+                        tooltiptext.innerHTML = message
+
+                        if (toastfs && 'success' in toastfs) {
+                            toastfs.success(message)
+                        }
+
+                        console.log(message)
                     })
                     .catch(() => console.log('error'));
             }
