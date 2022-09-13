@@ -4,11 +4,33 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Front-Helpers</title>
+        <title>Front Helpers</title>
     </head>
     <body>
         <div class="container">
-            <h2>Front-Helpers</h2>
+            <h2>Front Helpers</h2>
+
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center">
+                        Using
+                    </h3>
+
+                    <div class="w-100">
+                        <code>
+                            (function (src) {
+                                if (!src || typeof src != 'string') {
+                                    return;
+                                }
+
+                                let script = document.createElement('script')
+                                script.src = src
+                                document.head.appendChild(script)
+                            })('https://tiagofrancafernandes.github.io/Front-Helpers/src/js/helpers.js')
+                        </code>
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
