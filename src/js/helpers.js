@@ -330,7 +330,7 @@
             * Usage DomHelpers #1
              * @param {String} tagName
              * @param {Object} attributes
-             * @returns ??
+             * @returns HTML[tagName]Element
              */
             createTag : function (tagName, attributes) {
                 let tag = document.createElement(tagName)
