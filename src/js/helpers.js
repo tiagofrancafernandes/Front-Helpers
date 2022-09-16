@@ -442,4 +442,4 @@
 
         window[globalKey][value[0]] = value[1]
     })
-})()
+})('_helpers')
