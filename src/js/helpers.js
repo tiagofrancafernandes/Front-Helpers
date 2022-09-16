@@ -325,6 +325,26 @@
             }
         },
 
+        DomHelpers: {
+            /**
+            * Usage DomHelpers #1
+             * @param {String} tagName
+             * @param {Object} attributes
+             * @returns ??
+             */
+            createTag : function (tagName, attributes) {
+                let tag = document.createElement(tagName)
+
+                let allAttr = []
+                Object.entries(attributes).forEach(attr => {
+                    let [key, value] = attr
+                    tag.setAttribute(key, value)
+                })
+
+                return tag
+            },
+        },
+
         aliases: {
             datasetGet: function (elementSelector, key, defaultValue = null) {
                 let self = window[globalKey]
