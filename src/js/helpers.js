@@ -109,7 +109,7 @@
 
         NumberHelpers: {
             /**
-             *
+             * Example: NumberHelpers #1
              * @param {*} num
              * @returns Boolean
              */
@@ -128,11 +128,7 @@
             },
 
             /**
-             *   Usage:
-             * ```
-             *   range(1, 4) // Output: Array(4) [ 1, 2, 3, 4 ]
-             * ```
-             *
+             * Example: NumberHelpers #2
              * @param {*} start
              * @param {*} end
              * @returns Array
@@ -302,12 +298,7 @@
                 },
 
                 /**
-                 * Usage:
-                 * ```
-                 * <tag data-json-info='{"name":"Tiago"}' />
-                 * _helpers.DatasetHelpers.object.getFromJson('[data-json-info]', 'jsonInfo', {}) // Object { name: "Tiago" }
-                 * ```
-                 *
+                 * Example: DatasetHelpers #2
                  * @param {*} elementSelector
                  * @param {*} key
                  * @param {*} defaultValue
@@ -327,7 +318,7 @@
 
         DomHelpers: {
             /**
-            * Usage DomHelpers #1
+             * Example: DomHelpers #1
              * @param {String} tagName
              * @param {Object} attributes
              * @returns HTML[tagName]Element
