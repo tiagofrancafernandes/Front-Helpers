@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/highlight-maker.css">
+    <style>
+        .my-attribute-name-custom-color {
+            color: violet;
+        }
+        .tag-name-custom {
+            color: violet;
+        }
+         * {
+            --hl-color-green: #0cc120;
+         }
+    </style>
+</head>
+<body>
+    <div put-tag=""></div>
+    <script src="js/highlight-maker.js"></script>
+
+    <script>
+        allTags = [
+            {
+                classes: {
+                    lt: "tag-lt",
+                    gt: "tag-gt",
+                    attrName: "attr-name",
+                    attrValue: "attr-value",
+                },
+                tagName: "img",
+                selfClose: true,
+                attributes: {
+                    src: "img.jpg",
+                    alt: "Image",
+                    title: "My image"
+                },
+                contentData: {
+                    html: false,
+                    content: ""
+                }
+            },
+            {
+                classes: {
+                    tagGtLt: "tag-gt-lt",
+                    tagAttrContainer: "attr",
+                    attributeName: "my-attribute-name-custom-color",
+                    attributeValue: "attr-value",
+                    tagName: 'tag-name-custom',
+                },
+                tagName: "div",
+                selfClose: false,
+                attributes: {
+                    src: "img.jpg",
+                    alt: "Image",
+                    title: "My image"
+                },
+                contentData: {
+                    html: true,
+                    content: "<br>&nbsp;&nbsp;&nbsp;&nbsp;My code here"
+                }
+            }
+        ]
+
+        allTags.forEach(tag => addTagHighlight(tag, document?.querySelector('div[put-tag]')))
+    </script>
+</body>
+</html>

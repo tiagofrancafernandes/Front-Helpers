@@ -1,0 +1,65 @@
+:root {
+    --hl-color-light: #ffffff;
+    --hl-color-black: #000000;
+    --hl-color-dark: #1a2325;
+    --hl-color-green: green;
+    --hl-color-gray: #7a8486;
+
+    --hl-prop-font-weight: 600;
+}
+
+.highlight {
+    padding: 2pt 4pt 4pt 4pt;
+    position: relative !important;
+    overflow: auto !important;
+}
+
+.highlight.pre {
+    display: block !important;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    overflow: auto;
+    font-size: .875em;
+    -ms-overflow-style: scrollbar;
+}
+
+.highlight .tag-container {
+    font-style: italic;
+}
+
+.text-bold {
+    font-weight: bold !important;
+}
+
+.bg-dark {
+    background-color: var(--hl-color-black);
+}
+
+.highlight .tag-lt,
+.highlight .tag-gt-lt,
+.highlight .tag-gt {
+    color: var(--hl-color-dark);
+}
+
+.highlight .tag-name {
+    color: var(--hl-color-green);
+}
+
+.highlight .tag-name {
+    color: var(--hl-color-green);
+    font-weight: var(--hl-prop-font-weight);
+}
+
+.highlight .attr {
+    color: var(--hl-color-light);
+}
+
+.highlight .attr .attr-name {
+    color: #dd630c;
+    font-weight: var(--hl-prop-font-weight);
+}
+
+
+.highlight .attr .attr-value {
+    color: #5190c7;
+}
