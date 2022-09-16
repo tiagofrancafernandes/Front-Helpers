@@ -8,6 +8,7 @@ let attributes = {
     alt: "Image",
     title: "My image"
 }
-tag = createTag('img', attributes)
+
+let tag = _helpers.DomHelpers.createTag('img', attributes)
 console.log(tag)
 ```
