@@ -16,3 +16,8 @@ console.log(tag)
 ----
 
 # Memoize Vanilla JS
+
+```JS
+//JavaScript
+```
+
