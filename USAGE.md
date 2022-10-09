@@ -41,7 +41,4 @@ console.log(myFun2(2))
 
 console.log(myFun3(2, 5))
 console.log(myFun3(2, 5))
-
-console.log(myFun2(1))
-console.log(myFun2(2))
 ```
