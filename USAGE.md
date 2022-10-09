@@ -12,3 +12,7 @@ let attributes = {
 let tag = _helpers.DomHelpers.createTag('img', attributes)
 console.log(tag)
 ```
+
+----
+
+# Memoize Vanilla JS
