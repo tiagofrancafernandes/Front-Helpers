@@ -1,3 +1,4 @@
+// Example in https://github.com/tiagofrancafernandes/Front-Helpers/blob/dev/USAGE.md
 window.memoize = (callable, ...params) => {
     let argumentsUID = JSON.stringify(params)
     let cacheName = `cacheMap_${callable}`
